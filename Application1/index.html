@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+
+     <script src="react.min.js"></script>
+    <script src="react-dom.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    </head>
+
+<body>
+Content of the document......
+
+<div id="container">
+    
+</div>
+
+<script type="text/babel">   
+
+
+var Hello = React.createClass({
+
+
+getInitialState:function(props){        
+        return { height:100, counter:100  }
+},
+
+
+  render: function() {
+
+  var {studentid, sname, lname, pic} = this.props;
+  var {height, counter} = this.state;
+
+                            return (<div>
+                                           <h2>Hello {this.props.name}</h2>   
+                                            ID: {studentid}
+                                            FName: {sname}
+                                            LName: {lname}
+                                            Coutner: {counter}
+                                             <br/> 
+                                            <img src={pic} height={height} /> <br/> 
+                                            <button onClick={this.zoomOut.bind(this)}>-</button>
+                                            <button onClick={this.zoomIn.bind(this)}>+</button>                                                                                 
+                                           
+                                </div>);
+                    },
+
+zoomIn:function() {
+this.setState({
+height: this.state.height + 10,
+counter: this.state.counter + 1
+});
+},
+
+zoomOut:function() {
+this.setState({
+height: this.state.height - 10,
+counter: this.state.counter - 1
+});
+},
+
+
+});
+
+ReactDOM.render(
+  <Hello name="World" studentid="444" sname="agnel" lname="amodia" pic= "http://icons.iconseeker.com/png/fullsize/msn/online-1.png"/>,document.getElementById('container')
+);
+
+ </script>
+
+
+</body>
+
+</html>
